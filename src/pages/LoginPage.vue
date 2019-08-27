@@ -46,6 +46,7 @@ export default {
                     this.email = "";
                     this.password = "";
                     alert("登录成功！");
+                    window.location.href = 'home';
                 } else {
                     alert("邮箱或密码错误！");
                 }
@@ -180,6 +181,7 @@ h1 {
 
 .copyright {
     margin: 4em 0 2em;
+    text-align: center;
 }
 
 .copyright p {

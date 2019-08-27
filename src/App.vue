@@ -23,6 +23,7 @@ body {
 body {
     font-family: 'Catamaran', sans-serif;
     font-size: 100%;
-    text-align: center;
+    width: 100%;
+    height: 100%;
 }
 </style>

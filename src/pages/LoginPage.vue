@@ -46,7 +46,7 @@ export default {
                     this.email = "";
                     this.password = "";
                     alert("登录成功！");
-                    window.location.href = 'home';
+                    this.$router.push("home");
                 } else {
                     alert("邮箱或密码错误！");
                 }

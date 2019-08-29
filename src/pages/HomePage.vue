@@ -16,6 +16,9 @@
                     <div v-on:click="pageSelect('about')" v-bind:class="[this.currentPage === 'about' ? 'active' : '']">
                         <h4>关&nbsp;于&nbsp;我&nbsp;们</h4>
                     </div>
+                    <div v-on:click="logOut">
+                        <h4>登&nbsp;出</h4>
+                    </div>
                 </td>
                 <!-- menu end -->
                 <!-- data start -->
@@ -82,6 +85,8 @@
 </template>
 
 <script>
+import util from '../Util';
+
 export default {
     name: 'HomePage',
     data: function(){
@@ -174,7 +179,10 @@ export default {
             }
 
             if (this.isEditor){
-                var oldItem = this.studentSource[this.currentRow];
+                var currentData = this.currentData;
+                var oldItem = this.studentSource.find(function(item){
+                    return item.id === currentData.id;
+                });
                 if (oldItem){
                     oldItem.code = this.studentInfo.code;
                     oldItem.name = this.studentInfo.name,
@@ -224,6 +232,10 @@ export default {
                 return false;
             }
             return true;
+        },
+        logOut: function(){
+            util.clearCookie('loginSatus');
+            this.$router.push("/");
         }
     },
     created(){
@@ -277,6 +289,7 @@ table {
     margin-top: 5px;
     margin-left: 5px;
     padding: 20px;
+    cursor: pointer;
 }
 
 /* container */

@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import util from '../Util';
+
 export default {
     name: 'LoginPage',
     data: function(){
@@ -46,6 +48,7 @@ export default {
                     this.email = "";
                     this.password = "";
                     alert("登录成功！");
+                    util.setCookie('loginSatus', true, 1);
                     this.$router.push("home");
                 } else {
                     alert("邮箱或密码错误！");
